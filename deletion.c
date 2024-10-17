@@ -14,15 +14,14 @@ void LinkedListTraversal(struct Node *ptr){
     // head = deleteLastNode(head);
 }
 // structure to delete First node in the Linked List
-/*
+
   struct Node *deleteFirst(struct Node *head){
     struct Node *ptr = head;
         head = head -> next;
         free(ptr);  
         return head;
     }; 
-}
-*/
+
 // Structure to delete node at given value in the Linked List
 /*
 struct Node *deleteAtValue(struct Node *head, int value){
@@ -39,7 +38,7 @@ struct Node *deleteAtValue(struct Node *head, int value){
     return head;
 }
 */
-// Structure to delete node in btw AT INDEX in the Linked List
+// Structure to delete node AT INDEX in the Linked List
 /*
 struct Node *deleteAtIndex(struct Node *head, int index){
     struct Node *p = head;
@@ -54,6 +53,22 @@ struct Node *deleteAtIndex(struct Node *head, int index){
     return head;
 }
 */
+
+struct Node *deleteAfterIndex(struct Node *head, int index){
+    struct Node *p = head;
+    struct Node *q = p -> next;
+    struct Node *r = q -> next;
+    for(int i=0; i < index-1; i++){
+        p = p -> next;
+        q = q -> next;
+        r = r -> next;
+    }
+    q-> next = r -> next ;
+    // head = deleteLastNode(head);
+    free(r);
+    return head;
+}
+
 // Structure to delete last node in the Linked List
 /*
     struct Node *deleteLastNode(struct Node *head){
@@ -94,11 +109,13 @@ printf("Linked List before deletion.\n");
     LinkedListTraversal(head);
 
 // Linked List after deletion    
-// printf("Linked List after deletion.\n");
+printf("Linked List after deletion.\n");
     // head = deleteFirst(head);
     // head = deleteLastNode(head);
-    // head = deleteAtIndex(head, 3);
-    // head = deleteAtValue(head, 3);
+    head = deleteAfterIndex(head, 1);
     // LinkedListTraversal(head);
+    // head = deleteAtIndex(head, 1);
+    // head = deleteAtValue(head, 3);
+    LinkedListTraversal(head);
     return 0;
 }

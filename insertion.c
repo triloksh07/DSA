@@ -13,14 +13,14 @@ void LinkedListTraversal(struct Node *ptr){
     }
 }
 // insert element at First in the Linked List
-/*
+// /*
 struct Node *insertAtFirst(struct Node *head, int data){
     struct Node *ptr =(struct Node*)malloc(sizeof (struct Node));
     ptr -> next = head;
     ptr -> data = data;
     return ptr;
 }
-*/
+// */
 // insert element in btw in the linked list
 /*
 struct Node *insertInBtw(struct Node *head, int data, int index){
@@ -37,7 +37,7 @@ struct Node *insertInBtw(struct Node *head, int data, int index){
 }
 */
 // insert element at last in the linked list 
-/*
+// /*
 struct Node *insertAtLast(struct Node *head, int data){
     // struct Node *ptr = head;
     // struct Node *p;
@@ -51,8 +51,8 @@ struct Node *insertAtLast(struct Node *head, int data){
     ptr->next = NULL;
     return head;
 }
-*/
-// inser value at given value
+// */
+// insert value at given value
 /*
 struct Node *insertAtValue(struct Node *head, int data, struct Node *q){
     struct Node *p = (struct Node*)malloc(sizeof (struct Node));
@@ -90,13 +90,13 @@ int main(){
     printf("linked list before insertion.\n");
     LinkedListTraversal(head);
 // Linked List after insertion 
-    // printf("linked list after insertion.\n");
-    // head = insertAtFirst(head, 50);
+    printf("linked list after insertion.\n");
+    head = insertAtFirst(head, 50);
     // head = insertInBtw(head, 55, 2);
     // head = insertInBtw(head, 78, 4);
-    // head = insertAtLast(head, 78);
+    head = insertAtLast(head, 78);
     // head = insertAtValue(head, 78, second);
-    // LinkedListTraversal(head);
+    LinkedListTraversal(head);
     
     return 0;
 }
